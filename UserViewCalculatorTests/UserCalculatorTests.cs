@@ -10,7 +10,7 @@ namespace UserViewCalculatorTests
         UserConsoleCalculator userCalculator;
 
         [Test]
-        public void Start_EnterEmptyLine_ShouldWriteFirstMessage()
+        public void Start_EnterEmptyLine_ShouldWriteFirstMsg()
         {
             //Arrange
             Mock<IConsole> mock = new Mock<IConsole>();
@@ -26,15 +26,12 @@ namespace UserViewCalculatorTests
         }
 
         [Test]
-        public void Start_EnterValues_ShouldReturnResultString()
+        public void Start_EnterValue_ShouldReturnSecondMsg()
         {
             //Arrange
             Mock<IConsole> mock = new Mock<IConsole>();
-
             mock.SetupSequence(p => p.ReadLine())
-                .Returns("1")
                 .Returns("1,2")
-                .Returns("1,2,3")
                 .Returns("");
 
             userCalculator = new UserConsoleCalculator(mock.Object);
@@ -43,11 +40,87 @@ namespace UserViewCalculatorTests
             userCalculator.Start();
 
             //Assert
-            mock.Verify(p => p.WriteLine("You can enter other numbers (enter to exit)?"),Times.Exactly(3));
-            mock.Verify(p => p.WriteLine("Result is 1"));
-            mock.Verify(p => p.WriteLine("Result is 3"));
-            mock.Verify(p => p.WriteLine("Result is 6"));
+            mock.Verify(p => p.WriteLine("You can enter other numbers (enter to exit)?"));
+        }
+        [Test]
+        public void Start_EnterValues_ShouldReturnTwoSecondMsg()
+        {
+            //Arrange
+            Mock<IConsole> mock = new Mock<IConsole>();
+            mock.SetupSequence(p => p.ReadLine())
+                .Returns("1,2")
+                .Returns("4,5")
+                .Returns("");
+
+
+            userCalculator = new UserConsoleCalculator(mock.Object);
+
+            //Act
+            userCalculator.Start();
+
+            //Assert
+            mock.Verify(p => p.WriteLine("You can enter other numbers (enter to exit)?"),Times.Exactly(2));
         }
 
+        [Test]
+        public void Start_EnterValue_ShouldReturnValue()
+        {
+            //Arrange
+            Mock<IConsole> mock = new Mock<IConsole>();
+
+            mock.SetupSequence(p => p.ReadLine())
+                .Returns("1")
+                .Returns("");
+
+            userCalculator = new UserConsoleCalculator(mock.Object);
+
+            //Act
+            userCalculator.Start();
+
+            //Assert
+/*            mock.Verify(p => p.WriteLine("You can enter other numbers (enter to exit)?"),Times.Exactly(3));*/
+            mock.Verify(p => p.WriteLine("Result is 1"));
+        }
+
+        [Test]
+        public void Start_EnterValues_ShouldReturnTwiceResultMsg()
+        {
+            //Arrange
+            Mock<IConsole> mock = new Mock<IConsole>();
+
+            mock.SetupSequence(p => p.ReadLine())
+                .Returns("1,2")
+                .Returns("4,5")
+                .Returns("");
+
+            userCalculator = new UserConsoleCalculator(mock.Object);
+
+            //Act
+            userCalculator.Start();
+
+            //Assert
+            mock.Verify(p => p.WriteLine("Result is 3"));
+            mock.Verify(p => p.WriteLine("Result is 9"));
+        }
+
+        [Test]
+        public void Start_EnterMoreValues_ShouldReturnResult()
+        {
+            //Arrange
+            Mock<IConsole> mock = new Mock<IConsole>();
+
+            mock.SetupSequence(p => p.ReadLine())
+                .Returns("1,3,5,7")
+                .Returns("");
+
+            userCalculator = new UserConsoleCalculator(mock.Object);
+
+            //Act
+            userCalculator.Start();
+
+            //Assert
+            mock.Verify(p => p.WriteLine("Result is 16"));
+        }
+       
     }
 }
