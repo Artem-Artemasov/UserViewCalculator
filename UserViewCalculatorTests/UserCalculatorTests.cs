@@ -5,7 +5,7 @@ using UserViewCalculator.Interface;
 
 namespace UserViewCalculatorTests
 {
-    public class Tests
+    public class UserConsoleCalculatorTests
     {
         UserConsoleCalculator userCalculator;
 
