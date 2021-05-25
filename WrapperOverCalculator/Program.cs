@@ -1,4 +1,5 @@
 ﻿using System;
+using UserViewCalculator;
 
 namespace WrapperOverCalculator
 {
@@ -6,7 +7,7 @@ namespace WrapperOverCalculator
     {
         static void Main(string[] args)
         {
-            new UserViewCalculator().Start();
+            new UserConsoleCalculator(new MyConsole()).Start();
         }
     }
 }

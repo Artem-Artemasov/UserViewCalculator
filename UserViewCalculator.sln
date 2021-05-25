@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WrapperOverCalculator", "WrapperOverCalculator\WrapperOverCalculator.csproj", "{E166231F-9009-47EE-A719-70351F739CF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserViewCalculator", "WrapperOverCalculator\UserViewCalculator.csproj", "{E166231F-9009-47EE-A719-70351F739CF9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StringCalculator", "..\StringCalculator\StringCalculator\StringCalculator.csproj", "{EC0D961A-BC2C-4A98-BC80-12BC97E7697D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserViewCalculatorTests", "UserViewCalculatorTests\UserViewCalculatorTests.csproj", "{1710CF41-1476-438A-9353-4187BF9DF578}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{EC0D961A-BC2C-4A98-BC80-12BC97E7697D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC0D961A-BC2C-4A98-BC80-12BC97E7697D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC0D961A-BC2C-4A98-BC80-12BC97E7697D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1710CF41-1476-438A-9353-4187BF9DF578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1710CF41-1476-438A-9353-4187BF9DF578}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1710CF41-1476-438A-9353-4187BF9DF578}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1710CF41-1476-438A-9353-4187BF9DF578}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

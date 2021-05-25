@@ -1,16 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using StringCalculator;
+using UserViewCalculator.Interface;
 
-namespace WrapperOverCalculator
+namespace UserViewCalculator
 {
-    class UserViewCalculator
+    public class UserConsoleCalculator
     {
         private readonly Calculator calculator = new Calculator();
+        private IConsole output;
         
+        public UserConsoleCalculator(IConsole console)
+        {
+            this.output = console;
+        }
         public void Start()
         {
             int countAction = 0;
@@ -20,18 +22,20 @@ namespace WrapperOverCalculator
                 result = 0;
                 if (countAction == 0)
                 {
-                    Console.WriteLine("Enter comma separated numbers (enter to exit):");
+                    output.WriteLine("Enter comma separated numbers (enter to exit):");
                 }
                 else
                 {
-                    Console.WriteLine("You can enter other numbers (enter to exit)?");
+                    output.WriteLine("You can enter other numbers (enter to exit)?");
                 }
 
-                string inputNumbers = Console.ReadLine();
-                if (inputNumbers.Length == 0) return;
+                string inputNumbers = output.ReadLine();
+                if (inputNumbers == "") return;
 
                 result = calculator.Add(inputNumbers);
-                Console.WriteLine($"Result is {result}");
+                output.WriteLine($"Result is {result}");
+
+                countAction++;
             }
         }
     }
