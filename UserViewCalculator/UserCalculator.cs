@@ -6,12 +6,13 @@ namespace UserViewCalculator
 {
     public class UserConsoleCalculator
     {
-        private readonly Calculator calculator = new Calculator();
+        private readonly Calculator calculator;
         private IConsole output;
         
-        public UserConsoleCalculator(IConsole console)
+        public UserConsoleCalculator(IConsole console,Calculator calculator)
         {
             this.output = console;
+            this.calculator = calculator;
         }
         public void Start()
         {

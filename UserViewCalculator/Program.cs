@@ -1,5 +1,6 @@
 ﻿using System;
 using UserViewCalculator;
+using StringCalculator;
 
 namespace WrapperOverCalculator
 {
@@ -7,7 +8,7 @@ namespace WrapperOverCalculator
     {
         static void Main(string[] args)
         {
-            new UserConsoleCalculator(new MyConsole()).Start();
+            new UserConsoleCalculator(new MyConsole(),new Calculator()).Start();
         }
     }
 }
