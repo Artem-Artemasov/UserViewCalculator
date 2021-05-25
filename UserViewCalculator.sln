@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserViewCalculator", "WrapperOverCalculator\UserViewCalculator.csproj", "{E166231F-9009-47EE-A719-70351F739CF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserViewCalculator", "UserViewCalculator\UserViewCalculator.csproj", "{E166231F-9009-47EE-A719-70351F739CF9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StringCalculator", "..\StringCalculator\StringCalculator\StringCalculator.csproj", "{EC0D961A-BC2C-4A98-BC80-12BC97E7697D}"
 EndProject
