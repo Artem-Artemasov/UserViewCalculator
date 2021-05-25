@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WrapperOverCalculator\UserViewCalculator.csproj" />
+    <ProjectReference Include="..\UserViewCalculator\UserViewCalculator.csproj" />
   </ItemGroup>
 
 </Project>
