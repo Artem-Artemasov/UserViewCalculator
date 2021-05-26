@@ -11,7 +11,7 @@ namespace UserViewCalculatorTests
         UserConsoleCalculator userCalculator;
 
         [Test]
-        public void Start_EnterEmptyLine_ShouldWriteFirstMsg()
+        public void Work_FirstStart_WriteHelloMessage()
         {
             //Arrange
             Mock<IConsole> mockConsole = new Mock<IConsole>();
@@ -23,34 +23,14 @@ namespace UserViewCalculatorTests
             userCalculator = new UserConsoleCalculator(mockConsole.Object,mockCalculator.Object);
 
             //Act
-            userCalculator.Start();
+            userCalculator.Work();
 
             //Assert
             mockConsole.Verify(p => p.WriteLine("Enter comma separated numbers (enter to exit):"));
         }
-
+      
         [Test]
-        public void Start_EnterValue_ShouldReturnSecondMsg()
-        {
-            //Arrange
-            Mock<IConsole> mockConsole = new Mock<IConsole>();
-            Mock<Calculator> mockCalculator = new Mock<Calculator>();
-
-            mockConsole.SetupSequence(p => p.ReadLine())
-                .Returns("1,2")
-                .Returns("");
-            mockCalculator.Setup(p => p.Add("1,2")).Returns(3);
-
-            userCalculator = new UserConsoleCalculator(mockConsole.Object,mockCalculator.Object);
-
-            //Act
-            userCalculator.Start();
-
-            //Assert
-            mockConsole.Verify(p => p.WriteLine("You can enter other numbers (enter to exit)?"));
-        }
-        [Test]
-        public void Start_EnterValues_ShouldReturnTwoSecondMsg()
+        public void Work_TwiceEnteredValues_ReturnTwoSecondMsg()
         {
             //Arrange
             Mock<IConsole> mockConsole = new Mock<IConsole>();
@@ -67,36 +47,14 @@ namespace UserViewCalculatorTests
             userCalculator = new UserConsoleCalculator(mockConsole.Object,mockCalculator.Object);
 
             //Act
-            userCalculator.Start();
+            userCalculator.Work();
 
             //Assert
             mockConsole.Verify(p => p.WriteLine("You can enter other numbers (enter to exit)?"),Times.Exactly(2));
         }
 
         [Test]
-        public void Start_EnterOneValue_ShouldReturnThisValue()
-        {
-            //Arrange
-            Mock<IConsole> mockConsole = new Mock<IConsole>();
-            Mock<Calculator> mockCalculator = new Mock<Calculator>();
-
-            mockConsole.SetupSequence(p => p.ReadLine())
-                .Returns("1")
-                .Returns("");
-            mockCalculator.Setup(p => p.Add("1")).Returns(1);
-
-            userCalculator = new UserConsoleCalculator(mockConsole.Object,mockCalculator.Object);
-
-            //Act
-            userCalculator.Start();
-
-            //Assert
-            mockConsole.Verify(p => p.WriteLine("Result is 1"));
-        }
-
-
-        [Test]
-        public void Start_TwiceEnterValues_ShouldReturnTwiceResultMsg()
+        public void Work_TwiceEnteredValues_ReturnTwiceResultMsg()
         {
             //Arrange
             Mock<IConsole> mockConsole = new Mock<IConsole>();
@@ -113,7 +71,7 @@ namespace UserViewCalculatorTests
             userCalculator = new UserConsoleCalculator(mockConsole.Object,mockCalculator.Object);
 
             //Act
-            userCalculator.Start();
+            userCalculator.Work();
 
             //Assert
             mockConsole.Verify(p => p.WriteLine("Result is 3"));

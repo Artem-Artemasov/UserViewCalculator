@@ -14,29 +14,25 @@ namespace UserViewCalculator
             this.output = console;
             this.calculator = calculator;
         }
-        public void Start()
+        public void Work()
         {
-            int countAction = 0;
             int result = 0;
+
+            output.WriteLine("Enter comma separated numbers (enter to exit):");
+            string inputNumbers = output.ReadLine();
+            result = calculator.Add(inputNumbers);
+            output.WriteLine($"Result is {result}");
+
             while (true)
             {
                 result = 0;
-                if (countAction == 0)
-                {
-                    output.WriteLine("Enter comma separated numbers (enter to exit):");
-                }
-                else
-                {
-                    output.WriteLine("You can enter other numbers (enter to exit)?");
-                }
+                output.WriteLine("You can enter other numbers (enter to exit)?");
 
-                string inputNumbers = output.ReadLine();
+                inputNumbers = output.ReadLine();
                 if (inputNumbers == "") return;
 
                 result = calculator.Add(inputNumbers);
                 output.WriteLine($"Result is {result}");
-
-                countAction++;
             }
         }
     }

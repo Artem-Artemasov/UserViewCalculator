@@ -8,7 +8,7 @@ namespace WrapperOverCalculator
     {
         static void Main(string[] args)
         {
-            new UserConsoleCalculator(new MyConsole(),new Calculator()).Start();
+            new UserConsoleCalculator(new MyConsole(),new Calculator()).Work();
         }
     }
 }
